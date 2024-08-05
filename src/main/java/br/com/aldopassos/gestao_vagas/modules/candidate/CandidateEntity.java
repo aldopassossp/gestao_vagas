@@ -37,8 +37,8 @@ public class CandidateEntity {
     @Schema(example = "joaopaulo@gmail.com", requiredMode = RequiredMode.REQUIRED, description = "E-mail do candidato")
     private String email;
     
-    @Length(min=3, max=10, message = "A senha deve conter entre (3) e (10) caracteres")
-    @Schema(example = "admin@1234", minLength = 10, maxLength = 100, requiredMode = RequiredMode.REQUIRED, description = "Senha do candidato")
+    @Length(min=3, max=100, message = "A senha deve conter entre (3) e (100) caracteres")
+    @Schema(example = "admin@1234", minLength = 3, maxLength = 100, requiredMode = RequiredMode.REQUIRED, description = "Senha do candidato")
     private String password;
 
     @Schema(example = "Desenvolvedor Java", requiredMode = RequiredMode.REQUIRED, description = "Breve descrição do candidato")
