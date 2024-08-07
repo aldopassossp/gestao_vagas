@@ -25,10 +25,12 @@ jobs:
               run: docker push aldopassos/gestao_vagas
     deploy:
         needs: build
-        runs-on: self-hosted
+        runs-on: linux
         steps:
             - name: Pull image docker hub
               run: docker pull aldopassos/gestao_vagas:latest
+            - name: remove container
+              run: docker rm -f
             - name: Run docker container gestao-vagas
               run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_PASSWORD='${{secrets.DOCKER_PASSWORD}}' -e DATABASE_USERNAME=${{secrets.DOCKER_USERNAME}} --name gestao-vagas aldopassos/gestao_vagas
 
